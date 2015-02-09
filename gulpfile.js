@@ -5,6 +5,7 @@ var concat = require('gulp-concat');
 var merge = require('merge-stream');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
+var jshint = require('gulp-jshint');
 
 gulp.task('default', function() {
 	console.log('hello Javascript Summit 2015!');
@@ -40,4 +41,11 @@ gulp.task('minify', function() {
 		.pipe(gulp.dest('js/dist/vendor'));
 		
 	return merge(together, separate);
+});
+
+gulp.task('lint', function() {
+	return gulp.src(['js/src/**/*.js', '!js/src/vendor/*.js']) 
+		// lint all js files but what's in the vendor dir
+		.pipe(jshint())
+		.pipe(jshint.reporter('default'));
 });
