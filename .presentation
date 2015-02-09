@@ -1,0 +1,40 @@
+---
+slides:
+- slide:
+    commit: 299f1ee462f7ce734d12b6f9922cf55c02cd5af2
+    message: Initial commit
+- slide:
+    commit: 690b400a89474c47b543421d26a4158a75492e97
+    message: Starter gulpfile + package.json with sample default task
+- slide:
+    commit: 278f765534b9fef25d0d69a4f0175f491ccb5bc2
+    message: Compile Sass with gulp-ruby-sass
+- slide:
+    commit: 3d8fd5b2ae19ed55f145ed7c6699d6f64f18a2cd
+    message: Optimize images with gulp-smushit
+- slide:
+    commit: ab31fa7f377b8153835499a9c593b6bc0faf1e96
+    message: Concatenate Javascript with gulp-concat
+- slide:
+    commit: 1bb8b14e056681716e92597de75762a3ac4dec6e
+    message: Using merge-stream to handle two src/dests in "minify" so we can get
+      modernizr into /js/dist without concatenating into all.js
+- slide:
+    commit: c8da426e8188c472fd3e62af0413d8a02c28223c
+    message: jQuery has to appear first in all.js, so specify it first in the .src
+      array
+- slide:
+    commit: 442785919d7af436f646ebd540c99c03547ed034
+    message: Uglify with gulp-uglify and rename to all.min.js with gulp-rename
+- slide:
+    commit: 43e46eb6becf6429b2b9d1fde66b4e4e7800b3d9
+    message: Lint your Javascript (everything but what's in /src/vendor) with gulp-jshint
+- slide:
+    commit: 681de44424a1c6683999b4d197e5087d2f7c5fb6
+    message: Use gulp.watch in our default task to watch our /scss and /js/src directories
+      and fire "sass" and  "lint" / "minify", respectively
+- slide:
+    commit: 807d1201fced6c2f4c6f48c62bf23a1819abff3a
+    message: Add browserSync to give us a proxy server and inject CSS changes and
+      reload the page for us when we change anything in /src/js
+branch: master
