@@ -3,6 +3,8 @@ var sass = require('gulp-ruby-sass');
 var smushit = require('gulp-smushit');
 var concat = require('gulp-concat');
 var merge = require('merge-stream');
+var rename = require('gulp-rename');
+var uglify = require('gulp-uglify');
 
 gulp.task('default', function() {
 	console.log('hello Javascript Summit 2015!');
@@ -29,6 +31,9 @@ gulp.task('minify', function() {
 			'!js/src/vendor/modernizr-2.6.2.min.js'
 		])
 		.pipe(concat('all.js'))
+		.pipe(gulp.dest('js/dist'))
+		.pipe(rename('all.min.js'))
+		.pipe(uglify())
 		.pipe(gulp.dest('js/dist'));
 		
 	var separate = gulp.src('js/src/vendor/modernizr-2.6.2.min.js')
