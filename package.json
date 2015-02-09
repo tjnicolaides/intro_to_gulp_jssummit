@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/tjnicolaides/intro_to_gulp_jssummit",
   "devDependencies": {
+    "browser-sync": "^2.0.0-rc10",
     "gulp-concat": "^2.4.3",
     "gulp-jshint": "^1.9.2",
     "gulp-rename": "^1.2.0",

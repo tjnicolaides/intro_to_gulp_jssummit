@@ -6,16 +6,22 @@ var merge = require('merge-stream');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 
-gulp.task('default', function() {
+gulp.task('default', ['browser-sync'], function() {
 	gulp.watch("scss/**/*.scss", ['sass']);
     gulp.watch('js/src/**/*.js', ['lint', 'minify']);
 });
 
 gulp.task('sass', function() {
-	return gulp.src('scss/main.scss').pipe(sass()).on('error', function(err) {
-		console.log(err.message);
-	}).pipe(gulp.dest('css'));
+	return gulp.src('scss/main.scss')
+		.pipe(sass())
+		.on('error', function(err) {
+			console.log(err.message);
+		})
+		.pipe(gulp.dest('css'))
+		.pipe(reload({stream:true}));
 });
 
 gulp.task('smush', function() {
@@ -41,7 +47,7 @@ gulp.task('minify', function() {
 	var separate = gulp.src('js/src/vendor/modernizr-2.6.2.min.js')
 		.pipe(gulp.dest('js/dist/vendor'));
 		
-	return merge(together, separate);
+	return merge(together, separate, reload());
 });
 
 gulp.task('lint', function() {
@@ -49,4 +55,10 @@ gulp.task('lint', function() {
 		// lint all js files but what's in the vendor dir
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'));
+});
+
+gulp.task('browser-sync', function() {
+    browserSync({
+        proxy: "gulp_project_2.dev/"
+    });
 });
