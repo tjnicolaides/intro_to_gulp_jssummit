@@ -8,7 +8,8 @@ var uglify = require('gulp-uglify');
 var jshint = require('gulp-jshint');
 
 gulp.task('default', function() {
-	console.log('hello Javascript Summit 2015!');
+	gulp.watch("scss/**/*.scss", ['sass']);
+    gulp.watch('js/src/**/*.js', ['lint', 'minify']);
 });
 
 gulp.task('sass', function() {
