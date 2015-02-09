@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var sass = require('gulp-ruby-sass');
+var smushit = require('gulp-smushit');
 
 gulp.task('default', function(){
 	console.log('hello Javascript Summit 2015!');
@@ -10,4 +11,10 @@ gulp.task('sass', function () {
 		.pipe(sass())
         .on('error', function (err) { console.log(err.message); })
         .pipe(gulp.dest('css'));
+});
+
+gulp.task('smush', function () {
+    return gulp.src('images/*.{jpg,png}')
+        .pipe(smushit({'verbose': true}))
+        .pipe(gulp.dest('images'));
 });
