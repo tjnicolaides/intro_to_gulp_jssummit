@@ -22,7 +22,12 @@ gulp.task('smush', function() {
 
 gulp.task('minify', function() {
 	
-	var together = gulp.src(['js/src/**/*.js', '!js/src/vendor/modernizr-2.6.2.min.js'])
+	var together = gulp.src([
+			'js/src/vendor/jquery-1.11.1.min.js', 
+			'js/src/vendor/jquery.validate.js', 
+			'js/src/**/*.js', 
+			'!js/src/vendor/modernizr-2.6.2.min.js'
+		])
 		.pipe(concat('all.js'))
 		.pipe(gulp.dest('js/dist'));
 		
