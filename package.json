@@ -16,6 +16,7 @@
   "devDependencies": {
     "gulp-concat": "^2.4.3",
     "gulp-ruby-sass": "^0.7.1",
-    "gulp-smushit": "0.0.4"
+    "gulp-smushit": "0.0.4",
+    "merge-stream": "^0.1.7"
   }
 }
